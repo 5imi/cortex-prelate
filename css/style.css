@@ -473,9 +473,18 @@ section {
     margin-bottom: 3rem;
 }
 
+/* --- Features Grid Layout --- */
 .features-container {
     display: grid;
     gap: 2rem;
+    grid-template-columns: 1fr;
+    /* Mobile default */
+}
+
+/* Ensure Map takes full width at bottom */
+.features-container .contact-map {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
 }
 
 .feature-item {
