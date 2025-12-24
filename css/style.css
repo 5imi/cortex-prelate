@@ -429,7 +429,8 @@ section {
 }
 
 .card-content {
-    padding: 2rem;
+    padding: 2.5rem;
+    /* V1.2: Audit - Mai mult spatiu pentru respiratie */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -784,6 +785,24 @@ section {
     .contact-form {
         padding: 1.5rem;
         /* Mai putin padding lateral pe mobil */
+    }
+
+    /* V1.2: Audit - Reduce inaltime harta pe mobil */
+    .contact-map iframe {
+        height: 200px !important;
+    }
+}
+
+/* V1.2: Audit - Ascunde butonul header pe ecrane foarte mici */
+@media (max-width: 400px) {
+    .cta-header {
+        display: none;
+        /* FAB-urile de jos sunt suficiente */
+    }
+
+    .logo img {
+        max-width: 140px;
+        /* Asigura vizibilitate logo */
     }
 }
 
