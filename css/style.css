@@ -81,7 +81,8 @@ h4 {
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* V1.1: Redus min de la 2.5rem pentru ecrane de 360px */
     font-weight: 900;
 }
 
@@ -603,7 +604,8 @@ section {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1.25rem;
+    /* V1.1: Fat Finger Friendly (Era 1rem) */
     border: 2px solid #e0e0e0;
     border-radius: 4px;
     font-family: var(--font-body);
@@ -769,6 +771,19 @@ section {
     .contact-info-wrapper {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
+    }
+}
+
+/* ======== V1.1: MOBILE OPTIMIZATIONS (Quick Wins) ======== */
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 0;
+        /* Reduce spatiile moarte pe mobil (Era 8rem) */
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+        /* Mai putin padding lateral pe mobil */
     }
 }
 
