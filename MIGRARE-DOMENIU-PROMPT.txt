@@ -1,0 +1,76 @@
+# 📋 PROMPT PENTRU MIGRARE PE DOMENIU
+
+Când cumperi domeniul, trimite-mi acest mesaj exact:
+
+---
+
+**Am cumpărat domeniul [cortex.ro / cortexprodcom.ro / cortexfalticeni.ro].**
+
+**Actualizează toate URL-urile din site pentru noul domeniu:**
+- index.html (canonical, Open Graph, Schema.org)
+- sitemap.xml (toate <loc> tags)
+- robots.txt (Sitemap URL)
+- manifest.json (start_url dacă e necesar)
+- sw.js (cache paths dacă e necesar)
+
+**Domeniul nou: https://[DOMENIUL-TAU].ro**
+
+---
+
+## 🎯 Ce Voi Face Automat
+
+Când trimiți prompt-ul, voi actualiza în 30 secunde:
+
+### 1. index.html (5 locații)
+- `<link rel="canonical">`
+- `<meta property="og:url">`
+- `<meta property="og:image">`
+- `<meta name="twitter:image">`
+- Schema.org LocalBusiness "url" și "image"
+
+### 2. sitemap.xml (4 locații)
+- Homepage URL
+- privacy.html URL
+- terms.html URL
+- cookies.html URL
+
+### 3. robots.txt (1 locație)
+- Sitemap URL
+
+### 4. Verificare finală
+- Confirm că toate URL-urile sunt corecte
+- Îți dau lista de fișiere actualizate
+
+---
+
+## 📌 Instrucțiuni
+
+1. Cumpără domeniul (cortex.ro recomandat)
+2. Configurează DNS (A records + CNAME)
+3. Trimite-mi prompt-ul de mai sus cu domeniul tău
+4. Upload fișierele actualizate pe hosting
+5. Verifică site-ul live
+6. Submit sitemap în Google Search Console
+
+---
+
+## 🔧 Configurare DNS (pentru referință)
+
+**A Records (pentru apex domain):**
+```
+Type: A
+Name: @
+Value: [IP-ul hosting-ului tău]
+```
+
+**CNAME (pentru www):**
+```
+Type: CNAME
+Name: www
+Value: [domeniul tău].ro
+```
+
+---
+
+**Data creării acestui fișier:** 2025-01-15
+**Versiune site:** v1.5 (SEO optimizat + PWA + Sitemap)
