@@ -1,0 +1,21 @@
+{
+  "name": "CORTEX PRODCOM - Prelate Auto & Industriale",
+  "short_name": "CORTEX Prelate",
+  "description": "Service prelate auto pe E85 Fălticeni. Reparații rapide 24-48h, material Austria ISO.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a237e",
+  "theme_color": "#ffab00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "automotive", "industrial"],
+  "lang": "ro",
+  "scope": "/"
+}

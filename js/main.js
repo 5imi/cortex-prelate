@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainNav = document.querySelector('.main-nav');
     const hamburger = document.querySelector('.hamburger');
 
-    if (mobileNavToggle) {
+    if (mobileNavToggle && mainNav) {
         mobileNavToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             mobileNavToggle.classList.toggle('active');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (mainNav.classList.contains('active')) {
+            if (mainNav && mobileNavToggle && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
                 mobileNavToggle.classList.remove('active');
                 mobileNavToggle.setAttribute('aria-expanded', 'false');
@@ -43,3 +43,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Toast notification
+function closeToast() {
+    const toast = document.getElementById('success-toast');
+    if (toast) toast.style.display = 'none';
+}
+
+if (window.location.search.includes('status=success')) {
+    const toast = document.getElementById('success-toast');
+    if (toast) {
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 5000);
+    }
+}
+
+// Cookie Consent
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+function rejectCookies() {
+    localStorage.setItem('cookieConsent', 'rejected');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Show cookie banner if not answered
+if (!localStorage.getItem('cookieConsent')) {
+    setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.display = 'block';
+    }, 1000);
+}

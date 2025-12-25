@@ -53,12 +53,14 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProffessionalService",
+      "@type": "LocalBusiness",
+      "additionalType": ["AutomotiveBusiness", "HomeAndConstructionBusiness"],
       "name": "CORTEX PRODCOM SRL",
       "image": "https://5imi.github.io/cortex-prelate/images/logo.webp",
       "url": "https://5imi.github.io/cortex-prelate/",
       "telephone": "+40744580056",
       "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-17:00",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Str. Sucevii FN, DN2 (E85), KM 415",
@@ -333,7 +335,7 @@
                             title="Locația CORTEX PRODCOM pe Harta"></iframe>
                         <br><br>
                         <p style="text-align:center; font-size:0.9rem;"><a
-                                href="https://maps.app.goo.gl/5tzX6U57h28CC4vh9" target="_blank"
+                                href="https://maps.app.goo.gl/5tzX6U57h28CC4vh9" target="_blank" rel="noopener noreferrer"
                                 style="color:var(--color-primary); text-decoration: underline;">Deschide direct în
                                 Google Maps pentru Navigație ➔</a></p>
                     </div>
@@ -390,6 +392,7 @@
                         <h3>Cere o Ofertă Rapidă:</h3>
 
                         <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_next" value="https://5imi.github.io/cortex-prelate/?status=success">
                         <input type="hidden" name="_subject" value="Cerere Ofertă Prelate - Site CORTEX PRODCOM">
                         <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_template" value="table">
@@ -412,9 +415,9 @@
     <!-- ======== FOOTER ======== -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 1994 - 2025 CORTEX PRODCOM SRL. Producător prelate auto și terase în Fălticeni, Suceava.</p>
+            <p>&copy; 1994 - 2025 CORTEX PRODCOM SRL. Producător prelate auto și terase în Fălticeni, Suceava. | <a href="privacy.html" style="color:#ffab00;text-decoration:underline;">Politică de Confidențialitate</a></p>
             <div class="footer-social" style="margin-top: 10px;">
-                <a href="https://www.facebook.com/PrelataAutocamion/" target="_blank"
+                <a href="https://www.facebook.com/PrelataAutocamion/" target="_blank" rel="noopener noreferrer"
                     style="color: white; margin: 0 10px; text-decoration: underline;">Facebook</a>
             </div>
         </div>
@@ -437,6 +440,24 @@
                 </path>
             </svg>
         </a>
+    </div>
+
+    <!-- Success Toast Notification -->
+    <div id="success-toast" style="display:none;position:fixed;top:20px;right:20px;background:#28a745;color:white;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;">
+        <span style="font-size:1.2rem;margin-right:0.5rem;">✅</span>
+        <strong>Mesaj trimis!</strong> Te vom contacta în curând.
+        <button onclick="closeToast()" style="background:none;border:none;color:white;font-size:1.5rem;margin-left:1rem;cursor:pointer;">&times;</button>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a237e;color:white;padding:1.5rem;box-shadow:0 -4px 12px rgba(0,0,0,0.3);z-index:10000;">
+        <div style="max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <p style="margin:0;flex:1;min-width:250px;">🍪 Folosim cookie-uri pentru a îmbunătăți experiența ta. Continuând, ești de acord cu <a href="privacy.html" style="color:#ffab00;text-decoration:underline;">politica de confidențialitate</a>.</p>
+            <div style="display:flex;gap:1rem;">
+                <button onclick="acceptCookies()" style="background:#ffab00;color:#1a237e;border:none;padding:0.75rem 1.5rem;border-radius:50px;font-weight:700;cursor:pointer;">Accept</button>
+                <button onclick="rejectCookies()" style="background:transparent;color:white;border:2px solid white;padding:0.75rem 1.5rem;border-radius:50px;font-weight:700;cursor:pointer;">Refuz</button>
+            </div>
+        </div>
     </div>
 
     <!-- V1.3: Performance - Defer non-critical scripts -->
