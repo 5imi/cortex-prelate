@@ -37,14 +37,17 @@
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="images/logo.webp" as="image">
+    <link rel="preload" href="images/logo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/card_truck_new.webp" as="image">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
 
     <!-- CSS Critical Inline -->
     <style>
-        body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f8fafc}
-        .main-header{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);position:sticky;top:0;z-index:1000;padding:1.25rem 0}
+        body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f8fafc;font-size:16px;line-height:1.7;color:#1e293b}
+        .main-header{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);position:sticky;top:0;z-index:1000;padding:1.25rem 0;box-shadow:0 2px 4px rgba(0,0,0,.04)}
         .hero-section{background:linear-gradient(135deg,#1a237e 0%,#000051 50%,#1a237e 100%);color:#fff;padding:6rem 0;text-align:center}
+        .container{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+        h1{font-family:Montserrat,sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.2;margin-bottom:1.5rem}
     </style>
 
     <!-- Link către fișierul CSS -->
@@ -166,7 +169,7 @@
     <header class="main-header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="images/logo.webp" alt="CORTEX PRODCOM SRL Sigla" width="55" height="55">
+                <img src="images/logo.webp" alt="CORTEX PRODCOM SRL Sigla" width="55" height="55" fetchpriority="high">
             </a>
             <nav class="main-nav">
                 <ul class="nav-links">
@@ -204,7 +207,7 @@
                 <div class="cards-container">
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="400" height="300" loading="eager" fetchpriority="high">
+                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="640" height="640" loading="eager" fetchpriority="high">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Camioane & TIR</h3>
@@ -221,8 +224,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_dump_truck.webp" alt="Sistem Prelata Basculanta" width="400"
-                                height="300" loading="lazy">
+                            <img src="images/card_dump_truck.webp" alt="Sistem Prelata Basculanta" width="640" height="640" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Basculante & Bena</h3>
@@ -239,8 +241,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_terrace.webp" alt="Terasa Acoperita cu Prelata" width="400"
-                                height="300" loading="lazy">
+                            <img src="images/card_terrace.webp" alt="Terasa Acoperita cu Prelata" width="640" height="640" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Terase Comerciale & HORECA</h3>
@@ -257,8 +258,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_print.webp" alt="Inscriptionare Prelata Camion" width="400"
-                                height="300" loading="lazy">
+                            <img src="images/card_print.webp" alt="Inscriptionare Prelata Camion" width="640" height="640" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Inscripționări & Reclamă Mobilă</h3>
@@ -275,8 +275,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_industrial_hall.webp" alt="Depozit Industrial Acoperit" width="400"
-                                height="300" loading="lazy">
+                            <img src="images/card_industrial_hall.webp" alt="Depozit Industrial Acoperit" width="640" height="640" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Hale Industriale & Corturi</h3>
@@ -293,8 +292,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_greenhouse.webp" alt="Sera si Gradina Acoperita" width="400"
-                                height="300" loading="lazy">
+                            <img src="images/card_greenhouse.webp" alt="Sera si Gradina Acoperita" width="640" height="640" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h3>Agro-Textile & Sere Profesionale</h3>
@@ -376,21 +374,21 @@
                         <div style="font-size:3rem;margin-bottom:1rem;">🚛</div>
                         <h3 style="margin-bottom:1rem;">Transport Marfă</h3>
                         <p style="color:#666;margin-bottom:1rem;"><strong>Recomandare:</strong> Prelată TIR 650g/mp</p>
-                        <p style="font-size:0.9rem;color:#888;margin-bottom:1.5rem;">Rezistentă, impermeabilă, certificată vamă</p>
+                        <p style="font-size:0.9rem;color:#666;margin-bottom:1.5rem;">Rezistentă, impermeabilă, certificată vamă</p>
                         <a href="#contact" class="btn btn-primary" style="width:100%;padding:0.75rem;">Cere Ofertă</a>
                     </div>
                     <div style="border:2px solid #e0e0e0;border-radius:12px;padding:2rem;text-align:center;transition:all 0.3s;">
                         <div style="font-size:3rem;margin-bottom:1rem;">🏗️</div>
                         <h3 style="margin-bottom:1rem;">Construcții</h3>
                         <p style="color:#666;margin-bottom:1rem;"><strong>Recomandare:</strong> Prelată Basculantă 900g/mp</p>
-                        <p style="font-size:0.9rem;color:#888;margin-bottom:1.5rem;">Extra-rezistentă, anti-bitum, sistem rulare</p>
+                        <p style="font-size:0.9rem;color:#666;margin-bottom:1.5rem;">Extra-rezistentă, anti-bitum, sistem rulare</p>
                         <a href="#contact" class="btn btn-primary" style="width:100%;padding:0.75rem;">Cere Ofertă</a>
                     </div>
                     <div style="border:2px solid #e0e0e0;border-radius:12px;padding:2rem;text-align:center;transition:all 0.3s;">
                         <div style="font-size:3rem;margin-bottom:1rem;">☕</div>
                         <h3 style="margin-bottom:1rem;">HORECA</h3>
                         <p style="color:#666;margin-bottom:1rem;"><strong>Recomandare:</strong> Terasă Cristal 0.8mm</p>
-                        <p style="font-size:0.9rem;color:#888;margin-bottom:1.5rem;">Transparentă, retractabilă, garanție UV 5 ani</p>
+                        <p style="font-size:0.9rem;color:#666;margin-bottom:1.5rem;">Transparentă, retractabilă, garanție UV 5 ani</p>
                         <a href="#contact" class="btn btn-primary" style="width:100%;padding:0.75rem;">Cere Ofertă</a>
                     </div>
                 </div>
