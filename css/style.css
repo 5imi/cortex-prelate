@@ -943,3 +943,92 @@ h2 {
 h3 {
     letter-spacing: 0.5px;
 }
+
+/* V1.4: Secțiune Hub Logistic A7 */
+.a7-logistics-section {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    padding: 4rem 0;
+}
+
+.a7-info-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.a7-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.a7-icon {
+    font-size: 3rem;
+}
+
+.a7-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+}
+
+.travel-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.travel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s;
+}
+
+.travel-item:hover {
+    border-color: #ffab00;
+    /* Amber accent */
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.travel-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.travel-time {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #ffab00;
+    color: #212529;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.a7-cta {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .a7-info-box {
+        padding: 1.5rem;
+    }
+
+    .a7-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
