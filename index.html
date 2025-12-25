@@ -177,8 +177,9 @@
         <section id="hero" class="hero-section">
             <div class="container">
                 <h1>Prelate Auto & Industriale. Hub Regional Moldova & A7.</h1>
-                <p>Singurul atelier cu acces direct din A7 și E85. Producție la comandă și reparații rapide pentru
-                    transportatori din Suceava, Bacău, Iași, Botoșani și Vrancea.</p>
+                <p>Atelier cu acces direct din A7 și E85. Producție la comandă și reparații rapide pentru
+                    transportatori din județele Suceava, Bacău, Iași, Botoșani, Vrancea, Harghita, Bistrița, Maramures.
+                </p>
                 <a href="#contact" class="btn btn-primary btn-large">Cere o Ofertă Rapidă</a>
             </div>
         </section>
@@ -433,7 +434,7 @@
                         <h3>Cere o Ofertă Rapidă:</h3>
 
                         <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_next" value="https://5imi.github.io/cortex-prelate/">
+                        <input type="hidden" name="_next" value="https://5imi.github.io/cortex-prelate/?status=success">
                         <input type="hidden" name="_subject" value="Cerere Ofertă Prelate - Site CORTEX PRODCOM">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
@@ -492,6 +493,18 @@
             target="_blank">
             📍 NAVIGHEAZĂ
         </a>
+    </div>
+
+    <!-- Success Toast Notification -->
+    <div id="success-toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✅</span>
+            <div class="toast-message">
+                <h4>Mesaj Trimis!</h4>
+                <p>Te vom contacta în cel mai scurt timp.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()">&times;</button>
+        </div>
     </div>
 
     <!-- V1.3: Performance - Defer non-critical scripts -->
