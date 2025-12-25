@@ -35,18 +35,26 @@
         content="Producție și reparații prelate auto, terase și hale. Fălticeni - Suceava.">
     <meta name="twitter:image" content="https://5imi.github.io/cortex-prelate/images/card_truck_new.webp">
 
-    <!-- Google Fonts: Roboto Condensed (Headings) & Roboto (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-
-    <!-- V1.4: Performance - Preload Critical Resources -->
+    <!-- Preload Critical Resources -->
     <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="images/logo.webp" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
+
+    <!-- CSS Critical Inline -->
+    <style>
+        body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f8fafc}
+        .main-header{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);position:sticky;top:0;z-index:1000;padding:1.25rem 0}
+        .hero-section{background:linear-gradient(135deg,#1a237e 0%,#000051 50%,#1a237e 100%);color:#fff;padding:6rem 0;text-align:center}
+    </style>
 
     <!-- Link către fișierul CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts Async -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"></noscript>
 
     <!-- Schema.org JSON-LD pentru SEO Local & Regional -->
     <script type="application/ld+json">
@@ -196,8 +204,7 @@
                 <div class="cards-container">
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="400" height="300"
-                                loading="lazy">
+                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="400" height="300" loading="eager" fetchpriority="high">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Camioane & TIR</h3>
@@ -396,17 +403,17 @@
                 <h2 style="text-align:center;margin-bottom:1rem;">Proiectele Noastre</h2>
                 <p style="text-align:center;max-width:600px;margin:0 auto 3rem;color:#666;">Peste 30 de ani de experiență în prelate auto și industriale</p>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;">
-                    <img src="images/prelata-camion-cortex-falticeni-1.jpg" alt="Prelată camion CORTEX Fălticeni - transport marfă Suceava" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-tir-suceava-2.jpg" alt="Prelată TIR Suceava - semiremorcă profesională" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-basculanta-botosani-3.jpg" alt="Prelată basculantă Botoșani - sistem rulare la sol" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-auto-transport-4.jpg" alt="Prelată auto transport - material Austria 650g/mp" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-industriala-neamt-5.jpg" alt="Prelată industrială Neamț - hale și depozite" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-camion-personalizata-6.jpg" alt="Prelată camion personalizată - inscripționări publicitare" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-remorca-profesionala-7.jpg" alt="Prelată remorcă profesională - execuție 48h" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-vehicul-comercial-8.jpg" alt="Prelată vehicul comercial - polyplan rezistent" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-marfa-iasi-9.jpg" alt="Prelată marfă Iași - protecție transport" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-transport-moldova-10.jpg" alt="Prelată transport Moldova - livrare rapidă E85" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
-                    <img src="images/prelata-camion-inscriptionata-11.jpg" alt="Prelată camion inscripționată - branding flotă" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async">
+                    <img src="images/prelata-camion-cortex-falticeni-1.webp" alt="Prelată camion CORTEX Fălticeni - transport marfă Suceava" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-tir-suceava-2.webp" alt="Prelată TIR Suceava - semiremorcă profesională" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-basculanta-botosani-3.webp" alt="Prelată basculantă Botoșani - sistem rulare la sol" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-auto-transport-4.webp" alt="Prelată auto transport - material Austria 650g/mp" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-industriala-neamt-5.webp" alt="Prelată industrială Neamț - hale și depozite" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-camion-personalizata-6.webp" alt="Prelată camion personalizată - inscripționări publicitare" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-remorca-profesionala-7.webp" alt="Prelată remorcă profesională - execuție 48h" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-vehicul-comercial-8.webp" alt="Prelată vehicul comercial - polyplan rezistent" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-marfa-iasi-9.webp" alt="Prelată marfă Iași - protecție transport" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-transport-moldova-10.webp" alt="Prelată transport Moldova - livrare rapidă E85" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="images/prelata-camion-inscriptionata-11.webp" alt="Prelată camion inscripționată - branding flotă" style="width:100%;height:250px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" loading="lazy" decoding="async" width="250" height="250">
                 </div>
             </div>
         </section>
