@@ -39,11 +39,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- V1.3: Performance - Preload Critical Resources -->
-    <link rel="preload" href="images/hero-bg.webp" as="image">
+    <link rel="preload" href="images/hero-bg.webp" as="image" fetchpriority="high">
     <link rel="preload" href="css/style.css" as="style">
 
     <!-- Link către fișierul CSS -->
@@ -557,8 +557,7 @@
         </div>
     </div>
 
-    <!-- V1.3: Performance - Defer non-critical scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js" defer></script>
+    <!-- V1.4: Performance - Remove unused EmailJS -->
     <script src="js/main.js" defer></script>
 </body>
 
