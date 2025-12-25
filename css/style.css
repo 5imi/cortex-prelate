@@ -773,18 +773,36 @@ section {
 /* ======== V1.1: MOBILE OPTIMIZATIONS (Quick Wins) ======== */
 @media (max-width: 768px) {
     section {
-        padding: 4rem 0;
-        /* Reduce spatiile moarte pe mobil (Era 8rem) */
+        padding: 3rem 0;
+    }
+
+    .hero-section {
+        padding: 6rem 0;
     }
 
     .contact-form {
         padding: 1.5rem;
-        /* Mai putin padding lateral pe mobil */
     }
 
-    /* V1.2: Audit - Reduce inaltime harta pe mobil */
     .contact-map iframe {
         height: 200px !important;
+    }
+
+    .card-img {
+        height: 200px;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
     }
 }
 
