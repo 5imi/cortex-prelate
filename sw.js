@@ -1,17 +1,17 @@
 // Service Worker for CORTEX PRODCOM - PWA Cache Strategy
 const CACHE_NAME = 'cortex-prelate-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/images/logo.webp',
-  '/images/card_truck_new.webp',
-  '/images/card_dump_truck.webp',
-  '/images/card_terrace.webp',
-  '/images/card_print.webp',
-  '/images/card_industrial_hall.webp',
-  '/images/card_greenhouse.webp'
+  './',
+  './index.html',
+  './css/style.css',
+  './js/main.js',
+  './images/logo.webp',
+  './images/card_truck_new.webp',
+  './images/card_dump_truck.webp',
+  './images/card_terrace.webp',
+  './images/card_print.webp',
+  './images/card_industrial_hall.webp',
+  './images/card_greenhouse.webp'
 ];
 
 // Install event - cache critical resources
