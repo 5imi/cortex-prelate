@@ -20,20 +20,16 @@
 
     <link rel="canonical" href="https://5imi.github.io/cortex-prelate/">
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1a237e">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="CORTEX Prelate">
-
     <!-- Open Graph pentru Facebook -->
     <meta property="og:title" content="CORTEX PRODCOM - Prelate Auto & Terase Profesionale (Zona Moldova)">
     <meta property="og:description"
         content="Atelier prelate pe E85 Fălticeni. Soluții rapide pentru camioane, terase și industrie. Deservim Suceava, BT, NT, IS.">
     <meta property="og:image" content="https://5imi.github.io/cortex-prelate/images/card_truck_new.webp">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="640">
     <meta property="og:url" content="https://5imi.github.io/cortex-prelate/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="ro_RO">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -45,9 +41,9 @@
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="images/logo.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="images/card_truck_new.webp" as="image" fetchpriority="high">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload" as="image" href="images/card_truck_new.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- CSS Critical Inline -->
     <style>
@@ -59,12 +55,10 @@
         .btn{display:inline-block;padding:1.1rem 2.5rem;border-radius:50px;font-weight:700;text-align:center;cursor:pointer;border:none;text-transform:uppercase;font-size:.95rem;background:linear-gradient(135deg,#ffab00,#ff9100);color:#000051}
     </style>
 
-    <!-- Link către fișierul CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Link către fișierul CSS (non-blocking) -->
+    <link rel="stylesheet" href="css/style.css" media="all">
 
     <!-- Google Fonts Async optimizat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"></noscript>
 
@@ -82,7 +76,7 @@
       "openingHours": "Mo-Fr 08:00-17:00",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Str. Sucevii FN, DN2 (E85), KM 415",
+        "streetAddress": "DN2 (E85) KM 415, zona Iazuri",
         "addressLocality": "Fălticeni",
         "addressRegion": "Suceava",
         "postalCode": "725200",
@@ -104,11 +98,10 @@
       "foundingDate": "1994",
       "description": "Servicii complete de prelate auto și industriale pe ruta E85. Producție și reparații rapide pentru transportatori din Moldova.",
       "makesOffer": [
-        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Prelate Camioane și TIR"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Prelate Basculante"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Terase și Copertine HORECA"}},
-        {"@type": "Service", "name": "Reparații Prelate pe Loc"},
-        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Prelate Industriale & Hale"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Prelate Camioane"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Închideri Terase"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Hale Industriale"}},
+        {"@type": "Service", "name": "Reparații Prelate pe Loc"}
       ]
     }
     </script>
@@ -198,7 +191,7 @@
         <section id="hero" class="hero-section">
             <div class="container">
                 <h1>Prelate personalizate pentru camioane, hale și terase comerciale</h1>
-                <p>Le producem la comandă în Fălticeni, din materiale rezistente, cu execuție rapidă și preț corect. Experiență din 1994.</p>
+                <p>Le producem la comandă, din materiale rezistente, cu execuție rapidă și preț corect. Experiență din 1994.</p>
                 <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem 0;flex-wrap:wrap;">
                     <div style="background:rgba(255,171,0,0.95);padding:0.75rem 1.5rem;border-radius:50px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
                         <span style="font-weight:700;color:#1a237e;font-size:1rem;">✅ 30+ Ani Experiență | 🚛 Execuție 48h</span>
@@ -215,11 +208,11 @@
                 <div class="cards-container">
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="640" height="640" loading="eager" fetchpriority="high">
+                            <img src="images/card_truck_new.webp" alt="Prelata Camion Albastra" width="640" height="640" fetchpriority="high" loading="eager">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Camioane & Remorci</h3>
-                            <p>Prelate camioane fabricate exact pe dimensiunile vehiculului tău. Rezistente la vânt, ploaie și uzură intensă, potrivite pentru transport pe ruta E85 și coridor A7. Oferim și reparații prelate rapide.</p>
+                            <p>Prelate fabricate exact pe dimensiunile vehiculului tău. Rezistente la vânt, ploaie și uzură intensă, potrivite pentru transport intern sau internațional.</p>
                             <div class="tech-specs">
                                 <strong>Specificații:</strong> Polyplan 650g/mp, termolipire, accesorii vamale,
                                 rezistență -30°C/+70°C.
@@ -231,11 +224,11 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_dump_truck.webp" alt="Sistem Prelata Basculanta" width="640" height="640" loading="lazy">
+                            <img src="images/card_dump_truck.webp" alt="Sistem Prelata Basculanta" width="640" height="640" loading="lazy" decoding="async">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Basculante & Utilaje</h3>
-                            <p>Soluții durabile pentru condiții grele de lucru. Material gros, lipiri întărite și prinderi sigure.</p>
+                            <p>Soluții durabile pentru condiții grele de lucru. Material gros, cusături întărite și prinderi sigure.</p>
                             <div class="tech-specs">
                                 <strong>Specificații:</strong> Material 900g/mp dublu-ranforsat, clicheți galvanizați,
                                 rezistență la bitum fierbinte.
@@ -247,11 +240,11 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_terrace.webp" alt="Terasa Acoperita cu Prelata" width="640" height="640" loading="lazy">
+                            <img src="images/card_terrace.webp" alt="Terasa Acoperita cu Prelata" width="640" height="640" loading="lazy" decoding="async">
                         </div>
                         <div class="card-content">
                             <h3>Închideri Terase & Spații Comerciale</h3>
-                            <p>Închideri terase elegante și funcționale pentru restaurante, cafenele și terase. Protecție pe tot anul, cu vizibilitate bună și montaj curat. Ne deplasăm pentru montaj în întreaga regiune.</p>
+                            <p>Închideri elegante și funcționale pentru restaurante, cafenele și terase. Protecție pe tot anul, cu vizibilitate bună și montaj curat.</p>
                             <div class="tech-specs">
                                 <strong>Specificații:</strong> Folie Cristal 0.8mm (claritate sticlă), structură
                                 aluminiu/lemn, garanție UV 5 ani.
@@ -263,11 +256,11 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_print.webp" alt="Inscriptionare Prelata Camion" width="640" height="640" loading="lazy">
+                            <img src="images/card_print.webp" alt="Inscriptionare Prelata Camion" width="640" height="640" loading="lazy" decoding="async">
                         </div>
                         <div class="card-content">
                             <h3>Inscripționări & Reclamă Mobilă</h3>
-                            <p>Transformă flota într-un canal de marketing. Grafică vectorială rezistentă la spălări
+                            <p>Transformă flotta într-un canal de marketing. Grafică vectorială rezistentă la spălări
                                 mecanice și intemperii.</p>
                             <div class="tech-specs">
                                 <strong>Specificații:</strong> Vopsea serigrafică elastică (nu crapă la vânt) sau
@@ -280,7 +273,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_industrial_hall.webp" alt="Depozit Industrial Acoperit" width="640" height="640" loading="lazy">
+                            <img src="images/card_industrial_hall.webp" alt="Depozit Industrial Acoperit" width="640" height="640" loading="lazy" decoding="async">
                         </div>
                         <div class="card-content">
                             <h3>Prelate Hale, Corturi & Sere</h3>
@@ -296,7 +289,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img">
-                            <img src="images/card_greenhouse.webp" alt="Sera si Gradina Acoperita" width="640" height="640" loading="lazy">
+                            <img src="images/card_greenhouse.webp" alt="Sera si Gradina Acoperita" width="640" height="640" loading="lazy" decoding="async">
                         </div>
                         <div class="card-content">
                             <h3>Agro-Textile & Sere Profesionale</h3>
@@ -334,7 +327,7 @@
                     </div>
                     <div style="text-align:center;">
                         <div style="width:80px;height:80px;background:#ffab00;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2rem;font-weight:900;color:#1a237e;">4</div>
-                        <h3 style="margin-bottom:0.5rem;">Producție rapidă la atelierul din Fălticeni și montaj</h3>
+                        <h3 style="margin-bottom:0.5rem;">Producție și montaj rapid</h3>
                     </div>
                 </div>
             </div>
@@ -420,7 +413,7 @@
         <section id="despre" class="about-section">
             <div class="container">
                 <h2>De ce clienții aleg CORTEX PRODCOM</h2>
-                <p style="max-width:800px;margin:0 auto 2rem;text-align:center;color:#64748b;">CORTEX PRODCOM lucrează cu prelate în Suceava de peste 30 de ani. Știm exact ce funcționează în timp și ce nu. Deservim transportatori și afaceri din Botoșani, Iași, Neamț și întreaga regiune Moldova. Folosim materiale testate, executăm rapid și livrăm exact ce promitem, fără costuri ascunse.</p>
+                <p style="max-width:800px;margin:0 auto 2rem;text-align:center;color:#64748b;">Lucrăm cu prelate de peste 30 de ani. Știm exact ce funcționează în timp și ce nu. Folosim materiale testate, executăm rapid și livrăm exact ce promitem, fără costuri ascunse.</p>
                 <div class="features-container">
                     <div class="feature-item">
                         <h3>Experiență reală din 1994</h3>
@@ -450,7 +443,7 @@
                             title="Locația CORTEX PRODCOM pe Harta"></iframe>
                         <br><br>
                         <p style="text-align:center; font-size:0.9rem;"><a
-                                href="https://maps.app.goo.gl/5tzX6U57h28CC4vh9" target="_blank" rel="noopener noreferrer"
+                                href="https://maps.app.goo.gl/uX3L5S5X6MhXW7W78" target="_blank" rel="noopener noreferrer"
                                 style="color:var(--color-primary); text-decoration: underline;">Deschide direct în
                                 Google Maps pentru Navigație ➔</a></p>
                     </div>
@@ -473,7 +466,7 @@
                     </div>
                     <div class="faq-item">
                         <h3>Cât durează execuția?</h3>
-                        <p>În majoritatea cazurilor, între 24 și 48 de ore la atelierul CORTEX PRODCOM din Fălticeni, în funcție de complexitate. Pentru proiecte mari (terase, hale), termenul poate fi 3-5 zile.</p>
+                        <p>În majoritatea cazurilor, între 24 și 48 de ore, în funcție de complexitate. Pentru proiecte mari (terase, hale), termenul poate fi 3-5 zile.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Cât costă o prelată pentru camion?</h3>
@@ -591,17 +584,6 @@
 
     <!-- V1.4: Performance - Remove unused EmailJS -->
     <script src="js/main.js" defer></script>
-
-    <!-- PWA Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Service Worker registered:', reg.scope))
-                    .catch(err => console.log('Service Worker registration failed:', err));
-            });
-        }
-    </script>
 </body>
 
 </html>
