@@ -1,19 +1,29 @@
+# robots.txt for https://5imi.github.io/cortex-prelate/
+# Optimized for SEO - Allows all major search engines
+
+# Allow all search engines to crawl the entire site
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /css/
+Allow: /js/
 
-# Sitemap location
-Sitemap: https://5imi.github.io/cortex-prelate/sitemap.xml
-
-# Block access to admin/private areas (if any in future)
-Disallow: /admin/
+# Block access to sensitive or unnecessary directories (if they exist)
+Disallow: /temp/
 Disallow: /private/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /manifest.json
 
-# Allow all search engines to crawl
+# Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# Crawl delay (optional, helps with server load)
-Crawl-delay: 1
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://5imi.github.io/cortex-prelate/sitemap.xml
