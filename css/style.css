@@ -314,6 +314,25 @@ button, input, select, textarea {
     font-size: 1.05rem;
 }
 
+.btn-text-group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.btn-main-text {
+    font-size: 1.02rem;
+    font-weight: 700;
+}
+
+.btn-sub-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.92;
+}
+
 /* Meniu Mobil Toggle */
 .mobile-nav-toggle {
     display: none;
@@ -450,6 +469,13 @@ button, input, select, textarea {
     max-width: 620px;
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
 @media (max-width: 991px) {
     .container {
         padding: 0 1rem;
@@ -470,12 +496,22 @@ button, input, select, textarea {
         margin-right: auto;
     }
     .hero-actions {
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        max-width: 360px;
+        margin: 0 auto 2.5rem;
     }
     .hero-actions .btn {
+        width: 100%;
         white-space: normal;
         line-height: 1.35;
-        max-width: 100%;
+        padding: 0.9rem 1.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     .hero-actions .btn svg {
         flex-shrink: 0;
