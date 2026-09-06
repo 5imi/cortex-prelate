@@ -55,12 +55,13 @@ function initCalculator() {
     const optInstall = document.getElementById('opt-install');
     
     // Elemente afișare rezultate
+    const resType = document.getElementById('res-type');
     const resArea = document.getElementById('res-area');
     const resTime = document.getElementById('res-time');
     const resPrice = document.getElementById('res-price');
     const btnWhatsApp = document.getElementById('calc-whatsapp-btn');
 
-    if (!typeButtons.length || !inputLen || !inputHeight || !resPrice) return;
+    if (!typeButtons.length || !inputLen || !inputHeight) return;
 
     let selectedType = 'camion';
     let typeName = 'Prelată Camion / TIR';
@@ -83,12 +84,15 @@ function initCalculator() {
             } else if (selectedType === 'terasa') {
                 inputLen.value = 6.0;
                 inputHeight.value = 2.4;
+            } else if (selectedType === 'agricol') {
+                inputLen.value = 10.0;
+                inputHeight.value = 6.0;
+            } else if (selectedType === 'nautic') {
+                inputLen.value = 5.5;
+                inputHeight.value = 2.2;
             } else if (selectedType === 'reparatie') {
                 inputLen.value = 2.0;
                 inputHeight.value = 1.0;
-            } else if (selectedType === 'agricol') {
-                inputLen.value = 8.0;
-                inputHeight.value = 3.0;
             }
             updateCalculation();
         });
@@ -107,83 +111,63 @@ function initCalculator() {
         const len = parseFloat(inputLen.value) || 0;
         const h = parseFloat(inputHeight.value) || 0;
         let area = 0;
-        let minPrice = 0;
-        let maxPrice = 0;
         let execTime = '24 – 48 ore';
 
         if (selectedType === 'camion') {
             // Cutie TIR: 2 laterale + tavan
             area = Math.round((len * h * 2) + (len * 2.5));
-            minPrice = area * 75;
-            maxPrice = area * 95;
             execTime = '24 – 48 ore';
         } else if (selectedType === 'remorca') {
             // Remorcă mică
             area = Math.round((len * h * 2) + (len * 1.5));
-            minPrice = Math.max(350, area * 70);
-            maxPrice = Math.max(450, area * 85);
             execTime = '24 ore';
         } else if (selectedType === 'terasa') {
             // Folie transparentă cristal 0.8mm
             area = Math.round(len * h);
-            minPrice = area * 85;
-            maxPrice = area * 115;
             execTime = '2 – 3 zile';
+        } else if (selectedType === 'agricol') {
+            // Prelată mare baloți / siloz
+            area = Math.round(len * h);
+            execTime = '24 – 48 ore';
+        } else if (selectedType === 'nautic') {
+            // Barcă sau piscină
+            area = Math.round(len * h * 1.3);
+            execTime = '2 – 4 zile';
         } else if (selectedType === 'reparatie') {
             // Reparație rapidă pe loc
             area = Math.round(len * h);
-            minPrice = 150 + (area * 60);
-            maxPrice = 250 + (area * 90);
-            execTime = '60 – 90 minute (Pe loc!)';
-        } else if (selectedType === 'agricol') {
-            // Prelată simplă întinsă
-            area = Math.round(len * h);
-            minPrice = area * 55;
-            maxPrice = area * 75;
-            execTime = '24 – 48 ore';
+            execTime = '30 – 60 minute (Pe loc)';
         }
 
         // Opțiuni bifate
-        let extraCost = 0;
         let optionsList = [];
         if (optPrint && optPrint.checked) {
-            extraCost += (selectedType === 'camion' ? 500 : 250);
             optionsList.push('Inscripționare/Logo');
         }
         if (optHardware && optHardware.checked) {
-            extraCost += 150;
-            optionsList.push('Feronerie Zincată/Inox');
+            optionsList.push('Feronerie Zincată/Capse Dese');
         }
         if (optCable && optCable.checked) {
-            extraCost += 120;
-            optionsList.push('Cablu Vamal Omologat');
+            optionsList.push('Cablu Vamal / Ancore de Fixare');
         }
         if (optInstall && optInstall.checked) {
-            extraCost += 200;
-            optionsList.push('Montaj Inclus');
+            optionsList.push('Montaj Inclus la Atelier');
         }
 
-        minPrice += extraCost;
-        maxPrice += extraCost;
-
-        // Rotunjire la zeci
-        minPrice = Math.round(minPrice / 10) * 10;
-        maxPrice = Math.round(maxPrice / 10) * 10;
-
-        // Actualizare UI
+        // Actualizare UI (Fără prețuri numerice)
+        if (resType) resType.textContent = typeName;
         if (resArea) resArea.textContent = `${area} mp`;
         if (resTime) resTime.textContent = execTime;
-        if (resPrice) resPrice.textContent = `${minPrice} – ${maxPrice} RON`;
+        if (resPrice) resPrice.textContent = 'Calculat pe loc (Fără costuri ascunse)';
 
-        // Generare mesaj WhatsApp inteligent
+        // Generare mesaj WhatsApp profesional și complet
         if (btnWhatsApp) {
-            let msg = `Bună ziua! Am folosit calculatorul de pe site și doresc o ofertă exactă pentru: *${typeName}*.\n`;
+            let msg = `Bună ziua! Am configurat pe site o cerere pentru: *${typeName}*.\n`;
             msg += `📏 Dimensiuni: ${len}m lungime x ${h}m înălțime/lățime (~${area} mp).\n`;
             if (optionsList.length > 0) {
                 msg += `⚙️ Opțiuni bifate: ${optionsList.join(', ')}.\n`;
             }
-            msg += `💰 Estimare afișată: ${minPrice} - ${maxPrice} RON.\n`;
-            msg += `Când putem stabili o programare / măsurătoare la atelierul din Fălticeni?`;
+            msg += `Vă rog să-mi transmiteți o ofertă exactă de preț și când o puteți executa. Vă trimit și o poză pe WhatsApp.`;
 
             btnWhatsApp.href = `https://wa.me/40744533980?text=${encodeURIComponent(msg)}`;
         }

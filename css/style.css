@@ -622,11 +622,17 @@ button, input, select, textarea {
 
 .segments-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+    .segments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
     .segments-grid {
         grid-template-columns: 1fr;
     }
@@ -1482,67 +1488,104 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   11. TESTIMONIALE & ÎNCREDERE
+   11. TESTIMONIALE & ÎNCREDERE GOOGLE VERIFIED
    ========================================================================== */
 .testimonials-section {
-    padding: 5rem 0;
+    padding: 4.5rem 0;
     background: var(--color-bg-page);
 }
 
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-@media (max-width: 900px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.testimonial-card {
+.google-badge-card {
+    max-width: 820px;
+    margin: 0 auto;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-xl);
+    padding: 2.75rem 2.25rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.testimonial-stars {
-    color: #f59e0b;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
-
-.testimonial-text {
-    font-size: 0.95rem;
-    font-style: italic;
-    color: var(--color-text-main);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-.testimonial-author {
+.google-badge-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    border-top: 1px solid var(--color-border);
-    padding-top: 1rem;
+    gap: 1.25rem;
+    text-align: left;
 }
 
-.author-info h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
+.google-badge-icon {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+}
+
+.google-badge-score {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.score-num {
+    font-size: 2.2rem;
+    font-weight: 800;
     color: var(--color-primary);
+    font-family: var(--font-heading);
+    line-height: 1;
 }
 
-.author-info p {
-    font-size: 0.8rem;
+.stars-gold {
+    color: #f59e0b;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.google-badge-meta {
+    font-size: 0.95rem;
     color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.google-badge-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-main);
+    max-width: 680px;
+}
+
+.google-badge-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .google-badge-card {
+        padding: 1.75rem 1.25rem;
+    }
+    .google-badge-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .google-badge-actions {
+        flex-direction: column;
+    }
+    .google-badge-actions .btn {
+        width: 100%;
+    }
 }
 
 /* ==========================================================================
