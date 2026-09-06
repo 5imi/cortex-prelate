@@ -42,17 +42,107 @@
     <meta name="twitter:image" content="https://5imi.github.io/cortex-prelate/images/card_truck_new.webp">
 
     <!-- Preload resurse critice -->
-    <link rel="preload" href="css/style.css?v=2.2" as="style">
-    <link rel="preload" href="images/logo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="css/style.css?v=2.3" as="style">
 
     <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css?v=2.2">
+    <link rel="stylesheet" href="css/style.css?v=2.3">
 
-    <!-- Google Fonts Async -->
+    <!-- Google Fonts Async optimizat cu subset latin/latin-ext -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap&subset=latin,latin-ext" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap&subset=latin,latin-ext" rel="stylesheet"></noscript>
+
+    <!-- Schema.org Date Structurate pentru Google Rich Results & AI Crawlers -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://5imi.github.io/cortex-prelate/#localbusiness",
+          "name": "CORTEX PRODCOM SRL",
+          "alternateName": "Cortex Prelate Fălticeni",
+          "url": "https://5imi.github.io/cortex-prelate/",
+          "logo": "https://5imi.github.io/cortex-prelate/images/logo.webp",
+          "image": "https://5imi.github.io/cortex-prelate/images/card_truck_new.webp",
+          "description": "Producător autorizat și atelier reparații prelate camioane, semiremorci TIR, terase cu folie cristal și copertine industriale. Atelier situat direct pe E85 (KM 415), Fălticeni, Suceava. Curte mare 2.000 mp acces TIR 40t.",
+          "telephone": "+40744580056",
+          "priceRange": "$$",
+          "currenciesAccepted": "RON, EUR",
+          "paymentAccepted": "Cash, Card, Transfer Bancar",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "DN2 / E85 KM 415",
+            "addressLocality": "Fălticeni",
+            "addressRegion": "Suceava",
+            "postalCode": "725200",
+            "addressCountry": "RO"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.4600,
+            "longitude": 26.3000
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "08:00",
+              "closes": "14:00"
+            }
+          ],
+          "sameAs": [
+            "https://prelata.blogspot.com/"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://5imi.github.io/cortex-prelate/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Cât durează o reparație de prelată pe loc pentru camion sau TIR?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O reparație uzuală (tăieturi, peticire cu termosudură la 650°C, refacere cablu vamal, înlocuire capse sau bride) durează în medie 60–90 de minute în curtea atelierului nostru de pe E85 Fălticeni."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ce tip de material folosiți pentru prelatele de camioane?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Utilizăm exclusiv material Polyplan de proveniență Austria, cu densitate între 650g/mp și 900g/mp, tratat ignifug și rezistent la raze UV și temperaturi extreme (-30°C până la +70°C)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Există acces și spațiu de manevră pentru semiremorci TIR de 13.6m?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Da, atelierul CORTEX PRODCOM de la KM 415 pe DN2/E85 dispune de o curte generoasă de 2.000 mp, permițând intrarea, manevrarea și parcarea facilă a camioanelor articulate de 40 de tone fără abateri din traseu."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cât rezistă închiderile de terase cu folie transparentă cristal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Folia transparentă cristal de 0.8mm (800 microni) are o durabilitate medie de 7–10 ani, fiind tratată anti-UV pentru a preveni îngălbenirea și casarea la temperaturi de îngheț."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
