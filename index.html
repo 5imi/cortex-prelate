@@ -42,10 +42,10 @@
     <meta name="twitter:image" content="https://5imi.github.io/cortex-prelate/images/card_truck_new.webp">
 
     <!-- Preload resurse critice -->
-    <link rel="preload" href="css/style.css?v=2.3" as="style">
+    <link rel="preload" href="css/style.css?v=2.4" as="style">
 
     <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css?v=2.3">
+    <link rel="stylesheet" href="css/style.css?v=2.4">
 
     <!-- Google Fonts Async optimizat cu subset latin/latin-ext -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,12 +178,13 @@
 
             <nav class="main-nav" aria-label="Navigație principală">
                 <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link">Acasă</a></li>
+                    <li class="nav-item-mobile-only"><a href="#hero" class="nav-link">Acasă</a></li>
                     <li><a href="#segmente" class="nav-link">Servicii</a></li>
-                    <li><a href="#calculator" class="nav-link">Calculator Deviz</a></li>
-                    <li><a href="#before-after" class="nav-link">Înainte & După</a></li>
-                    <li><a href="#e85-hub" class="nav-link">Acces E85 TIR</a></li>
                     <li><a href="#produse" class="nav-link">Produse</a></li>
+                    <li><a href="#inchiriere" class="nav-link">Închiriere</a></li>
+                    <li><a href="#before-after" class="nav-link">Înainte / După</a></li>
+                    <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                    <li><a href="#e85-hub" class="nav-link">Acces E85</a></li>
                     <li><a href="#galerie" class="nav-link">Portofoliu</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -324,7 +325,7 @@
                             <div class="segment-icon">🏡</div>
                             <h3 class="segment-title">Terase & Horeca</h3>
                         </div>
-                        <p class="segment-desc">Închideri profesionale de terase, restaurante, foișoare și balcoane cu folie transparentă cristal 0.8mm rezistentă la ger, vânt puternic și ploaie.</p>
+                        <p class="segment-desc">Închideri de terase, restaurante, foișoare și balcoane cu folie transparentă cristal 0.8mm rezistentă la ger, vânt puternic și ploaie.</p>
                         <ul class="segment-list">
                             <li>Folie Cristal 0.8mm tratată anti-UV</li>
                             <li>Bride rotative, fermoare sau casetate</li>
@@ -503,7 +504,7 @@
 
                         <!-- Etichete Vizuale -->
                         <span class="ba-tag ba-tag-before">ÎNAINTE: Tăietură</span>
-                        <span class="ba-tag ba-tag-after">DUPĂ: Sudură 650°C</span>
+                        <span class="ba-tag ba-tag-after">DUPĂ: Termosudură 650°C</span>
 
                         <!-- Mâner Glisant -->
                         <div class="ba-handle">
@@ -647,7 +648,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-title">Agricultură & Silozuri</h3>
-                            <p class="product-desc">Protecție profesională pentru stive mari de baloți, silozuri și utilaje de recoltat. Material impermeabil 100%, rezistent la soare puternic și furtuni.</p>
+                            <p class="product-desc">Protecție de înaltă rezistență pentru stive mari de baloți, silozuri și utilaje de recoltat. Material impermeabil 100%, rezistent la soare puternic și furtuni.</p>
                             <ul class="product-specs">
                                 <li><strong>Material:</strong> Membrană PVC 650g/mp cu filtru UV</li>
                                 <li><strong>Fixare:</strong> Capse dese din 50 în 50 cm și ocheți</li>
@@ -872,7 +873,7 @@
                         </div>
                     </div>
                     <div class="gallery-item" data-category="remorca">
-                        <img src="images/prelata-remorca-profesionala-7.webp" alt="Prelată remorcă profesională" loading="lazy" decoding="async" width="400" height="300">
+                        <img src="images/prelata-remorca-profesionala-7.webp" alt="Prelată remorcă ranforsată" loading="lazy" decoding="async" width="400" height="300">
                         <div class="gallery-overlay">
                             <span class="gallery-caption">Remorcă Auto cu Structură Înălțată</span>
                         </div>
@@ -939,39 +940,45 @@
                     <p class="section-subtitle" style="color: #cbd5e1;">Ai nevoie de o prelată rapid, fără să cumperi una nouă? Oferim soluții flexibile de închiriere pentru șantiere, evenimente, depozitare temporară sau urgențe de transport.</p>
                 </div>
 
-                <div class="quality-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div class="quality-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
 
-                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 2rem;">
-                        <div class="quality-icon">🚜</div>
-                        <h4 style="color: #ffffff; margin-bottom: 0.5rem;">Prelate pentru Șantier</h4>
-                        <p style="color: #94a3b8;">Acoperire temporară pentru materiale de construcție, agregate, nisip și pietriș pe șantierele de construcții. Dimensiuni standard sau la comandă.</p>
-                        <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.9rem;">
-                            <li>Grosime 500–650 g/mp</li>
-                            <li>Dimensiuni 4×6m până la 10×15m</li>
-                            <li>Rezistente la UV și ploaie</li>
-                        </ul>
+                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; overflow: hidden; padding: 0;">
+                        <img src="images/inchiriere-prelate-santier.webp" alt="Închiriere prelate pentru șantier și construcții" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+                        <div style="padding: 1.5rem;">
+                            <h4 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.15rem;">🚜 Prelate pentru Șantier</h4>
+                            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">Acoperire temporară pentru materiale de construcție, agregate, nisip și pietriș pe șantierele de construcții. Dimensiuni standard sau la comandă.</p>
+                            <ul style="color: #cbd5e1; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+                                <li>Grosime 500–650 g/mp</li>
+                                <li>Dimensiuni 4×6m până la 10×15m</li>
+                                <li>Rezistente la UV și ploaie</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 2rem;">
-                        <div class="quality-icon">🏗️</div>
-                        <h4 style="color: #ffffff; margin-bottom: 0.5rem;">Prelate pentru Structuri</h4>
-                        <p style="color: #94a3b8;">Acoperiri temporare pentru hale, corturi de eveniment, depozite improvizate sau protecție mașini și utilaje agricole pe perioada iernii.</p>
-                        <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.9rem;">
-                            <li>PVC rezistent 650–900 g/mp</li>
-                            <li>Cu inele metalice pentru fixare</li>
-                            <li>Disponibile pe perioadă scurtă sau lungă</li>
-                        </ul>
+                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; overflow: hidden; padding: 0;">
+                        <img src="images/inchiriere-prelate-structuri.webp" alt="Închiriere prelate pentru structuri modulare și evenimente" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+                        <div style="padding: 1.5rem;">
+                            <h4 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.15rem;">🏗️ Prelate pentru Structuri</h4>
+                            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">Acoperiri temporare pentru hale, corturi de eveniment, depozite improvizate sau protecție mașini și utilaje agricole pe perioada iernii.</p>
+                            <ul style="color: #cbd5e1; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+                                <li>PVC rezistent 650–900 g/mp</li>
+                                <li>Cu inele metalice pentru fixare</li>
+                                <li>Disponibile pe perioadă scurtă sau lungă</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 2rem;">
-                        <div class="quality-icon">🚛</div>
-                        <h4 style="color: #ffffff; margin-bottom: 0.5rem;">Prelate pentru Transport</h4>
-                        <p style="color: #94a3b8;">Prelată urgentă pentru remorcă sau camion dacă a ta este în reparație. Soluție rapidă pentru a nu pierde o cursă sau o livrare importantă.</p>
-                        <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.9rem;">
-                            <li>Compatibile cu sisteme perdea standard</li>
-                            <li>Cablu vamal inclus opțional</li>
-                            <li>Preluare și returnare la atelier</li>
-                        </ul>
+                    <div class="quality-item" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; overflow: hidden; padding: 0;">
+                        <img src="images/prelata-auto-transport-4.webp" alt="Închiriere prelate temporare pentru transport și remorci" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+                        <div style="padding: 1.5rem;">
+                            <h4 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.15rem;">🚛 Prelate pentru Transport</h4>
+                            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">Prelată urgentă pentru remorcă sau camion dacă a ta este în reparație. Soluție rapidă pentru a nu pierde o cursă sau o livrare importantă.</p>
+                            <ul style="color: #cbd5e1; margin-top: 1rem; padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+                                <li>Compatibile cu sisteme perdea standard</li>
+                                <li>Cablu vamal inclus opțional</li>
+                                <li>Preluare și returnare la atelier</li>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
@@ -1031,7 +1038,7 @@
                     <div class="faq-item">
                         <div class="faq-question">Cât de rezistentă este lucrarea și ce durată de viață are?</div>
                         <div class="faq-answer">
-                            Lucrăm exclusiv cu material profesional Polyplan din Austria și tehnologie de termosudură la 650°C. Prelatele noastre rezistă în medie 8-10 ani în exploatare intensă, iar îmbinările nu se dezlipesc la vânt sau apă. Dacă apare orice problemă tehnică, vă așteptăm oricând la atelier pentru verificare și remediere.
+                            Lucrăm exclusiv cu material certificat Polyplan din Austria și tehnologie de termosudură la 650°C. Prelatele noastre rezistă în medie 8-10 ani în exploatare intensă, iar îmbinările nu se dezlipesc la vânt sau apă. Dacă apare orice problemă tehnică, vă așteptăm oricând la atelier pentru verificare și remediere.
                         </div>
                     </div>
 
