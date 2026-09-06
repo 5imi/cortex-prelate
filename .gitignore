@@ -1,0 +1,4 @@
+.aider*
+.agents/
+__pycache__/
+*.pyc
