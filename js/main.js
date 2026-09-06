@@ -185,7 +185,7 @@ function initCalculator() {
             msg += `💰 Estimare afișată: ${minPrice} - ${maxPrice} RON.\n`;
             msg += `Când putem stabili o programare / măsurătoare la atelierul din Fălticeni?`;
 
-            btnWhatsApp.href = `https://wa.me/40742900221?text=${encodeURIComponent(msg)}`;
+            btnWhatsApp.href = `https://wa.me/40744533980?text=${encodeURIComponent(msg)}`;
         }
     }
 
