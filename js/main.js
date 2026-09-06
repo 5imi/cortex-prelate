@@ -1,78 +1,350 @@
+/* ==========================================================================
+   CORTEX PRODCOM — Script Interactiv (v2.0)
+   Calculator Instant de Deviz, Slider Before/After, Galerie Filtrabilă & PWA
+   ========================================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const hamburger = document.querySelector('.hamburger');
-
-    if (mobileNavToggle && mainNav) {
-        mobileNavToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileNavToggle.classList.toggle('active');
-
-            // Aria expanded accessibility
-            const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true' || false;
-            mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-    }
-
-    // Close menu when clicking a link
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mainNav && mobileNavToggle && mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                mobileNavToggle.classList.remove('active');
-                mobileNavToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
-
-    // Smooth Scrolling for Anchor Links (if CSS scroll-behavior: smooth isn't supported)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    initNavigation();
+    initCalculator();
+    initBeforeAfterSlider();
+    initGalleryFilters();
+    initFaqAccordion();
+    initCookieConsent();
+    initToastNotifications();
 });
 
-// Toast notification
+/* ==========================================================================
+   1. NAVIGAȚIE & MENIU MOBIL
+   ========================================================================== */
+function initNavigation() {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileNavToggle && navLinks) {
+        mobileNavToggle.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            mobileNavToggle.setAttribute('aria-expanded', isActive);
+            mobileNavToggle.innerHTML = isActive 
+                ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
+                : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        });
+
+        // Închidere meniu la click pe un link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileNavToggle.setAttribute('aria-expanded', 'false');
+                    mobileNavToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+                }
+            });
+        });
+    }
+}
+
+/* ==========================================================================
+   2. CALCULATOR INTERACTIV DE DEVIZ (INSTANT ESTIMATOR)
+   ========================================================================== */
+function initCalculator() {
+    const typeButtons = document.querySelectorAll('.calc-type-btn');
+    const inputLen = document.getElementById('calc-len');
+    const inputHeight = document.getElementById('calc-height');
+    const optPrint = document.getElementById('opt-print');
+    const optHardware = document.getElementById('opt-hardware');
+    const optCable = document.getElementById('opt-cable');
+    const optInstall = document.getElementById('opt-install');
+    
+    // Elemente afișare rezultate
+    const resArea = document.getElementById('res-area');
+    const resTime = document.getElementById('res-time');
+    const resPrice = document.getElementById('res-price');
+    const btnWhatsApp = document.getElementById('calc-whatsapp-btn');
+
+    if (!typeButtons.length || !inputLen || !inputHeight || !resPrice) return;
+
+    let selectedType = 'camion';
+    let typeName = 'Prelată Camion / TIR';
+
+    // Schimbare tip lucrare
+    typeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            typeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedType = btn.dataset.type;
+            typeName = btn.querySelector('.type-label').textContent.trim();
+
+            // Setări implicite de dimensiuni pe tip
+            if (selectedType === 'camion') {
+                inputLen.value = 13.6;
+                inputHeight.value = 2.7;
+            } else if (selectedType === 'remorca') {
+                inputLen.value = 2.5;
+                inputHeight.value = 1.4;
+            } else if (selectedType === 'terasa') {
+                inputLen.value = 6.0;
+                inputHeight.value = 2.4;
+            } else if (selectedType === 'reparatie') {
+                inputLen.value = 2.0;
+                inputHeight.value = 1.0;
+            } else if (selectedType === 'agricol') {
+                inputLen.value = 8.0;
+                inputHeight.value = 3.0;
+            }
+            updateCalculation();
+        });
+    });
+
+    // Ascultători pentru modificarea dimensiunilor și opțiunilor
+    [inputLen, inputHeight].forEach(inp => {
+        inp.addEventListener('input', updateCalculation);
+    });
+
+    [optPrint, optHardware, optCable, optInstall].forEach(chk => {
+        if (chk) chk.addEventListener('change', updateCalculation);
+    });
+
+    function updateCalculation() {
+        const len = parseFloat(inputLen.value) || 0;
+        const h = parseFloat(inputHeight.value) || 0;
+        let area = 0;
+        let minPrice = 0;
+        let maxPrice = 0;
+        let execTime = '24 – 48 ore';
+
+        if (selectedType === 'camion') {
+            // Cutie TIR: 2 laterale + tavan
+            area = Math.round((len * h * 2) + (len * 2.5));
+            minPrice = area * 75;
+            maxPrice = area * 95;
+            execTime = '24 – 48 ore';
+        } else if (selectedType === 'remorca') {
+            // Remorcă mică
+            area = Math.round((len * h * 2) + (len * 1.5));
+            minPrice = Math.max(350, area * 70);
+            maxPrice = Math.max(450, area * 85);
+            execTime = '24 ore';
+        } else if (selectedType === 'terasa') {
+            // Folie transparentă cristal 0.8mm
+            area = Math.round(len * h);
+            minPrice = area * 85;
+            maxPrice = area * 115;
+            execTime = '2 – 3 zile';
+        } else if (selectedType === 'reparatie') {
+            // Reparație rapidă pe loc
+            area = Math.round(len * h);
+            minPrice = 150 + (area * 60);
+            maxPrice = 250 + (area * 90);
+            execTime = '60 – 90 minute (Pe loc!)';
+        } else if (selectedType === 'agricol') {
+            // Prelată simplă întinsă
+            area = Math.round(len * h);
+            minPrice = area * 55;
+            maxPrice = area * 75;
+            execTime = '24 – 48 ore';
+        }
+
+        // Opțiuni bifate
+        let extraCost = 0;
+        let optionsList = [];
+        if (optPrint && optPrint.checked) {
+            extraCost += (selectedType === 'camion' ? 500 : 250);
+            optionsList.push('Inscripționare/Logo');
+        }
+        if (optHardware && optHardware.checked) {
+            extraCost += 150;
+            optionsList.push('Feronerie Zincată/Inox');
+        }
+        if (optCable && optCable.checked) {
+            extraCost += 120;
+            optionsList.push('Cablu Vamal Omologat');
+        }
+        if (optInstall && optInstall.checked) {
+            extraCost += 200;
+            optionsList.push('Montaj Inclus');
+        }
+
+        minPrice += extraCost;
+        maxPrice += extraCost;
+
+        // Rotunjire la zeci
+        minPrice = Math.round(minPrice / 10) * 10;
+        maxPrice = Math.round(maxPrice / 10) * 10;
+
+        // Actualizare UI
+        if (resArea) resArea.textContent = `${area} mp`;
+        if (resTime) resTime.textContent = execTime;
+        if (resPrice) resPrice.textContent = `${minPrice} – ${maxPrice} RON`;
+
+        // Generare mesaj WhatsApp inteligent
+        if (btnWhatsApp) {
+            let msg = `Bună ziua! Am folosit calculatorul de pe site și doresc o ofertă exactă pentru: *${typeName}*.\n`;
+            msg += `📏 Dimensiuni: ${len}m lungime x ${h}m înălțime/lățime (~${area} mp).\n`;
+            if (optionsList.length > 0) {
+                msg += `⚙️ Opțiuni bifate: ${optionsList.join(', ')}.\n`;
+            }
+            msg += `💰 Estimare afișată: ${minPrice} - ${maxPrice} RON.\n`;
+            msg += `Când putem stabili o programare / măsurătoare la atelierul din Fălticeni?`;
+
+            btnWhatsApp.href = `https://wa.me/40742900221?text=${encodeURIComponent(msg)}`;
+        }
+    }
+
+    // Calcul inițial la încărcare
+    updateCalculation();
+}
+
+/* ==========================================================================
+   3. SLIDER INTERACTIV ÎNAINTE / DUPĂ (BEFORE & AFTER)
+   ========================================================================== */
+function initBeforeAfterSlider() {
+    const container = document.querySelector('.ba-container');
+    const afterWrapper = document.querySelector('.ba-after-wrapper');
+    const handle = document.querySelector('.ba-handle');
+
+    if (!container || !afterWrapper || !handle) return;
+
+    let isDragging = false;
+
+    function setSliderPosition(x) {
+        const rect = container.getBoundingClientRect();
+        let posX = x - rect.left;
+        let percentage = (posX / rect.width) * 100;
+
+        if (percentage < 5) percentage = 5;
+        if (percentage > 95) percentage = 95;
+
+        handle.style.left = `${percentage}%`;
+        afterWrapper.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+    }
+
+    // Mouse Events
+    handle.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        setSliderPosition(e.clientX);
+    });
+
+    // Touch Events (Mobil)
+    handle.addEventListener('touchstart', () => isDragging = true, { passive: true });
+    window.addEventListener('touchend', () => isDragging = false);
+    container.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        setSliderPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    // Click direct oriunde în container
+    container.addEventListener('click', (e) => {
+        setSliderPosition(e.clientX);
+    });
+}
+
+/* ==========================================================================
+   4. FILTRARE GALERIE PROIECTE REALE
+   ========================================================================== */
+function initGalleryFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (!filterBtns.length || !galleryItems.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            galleryItems.forEach(item => {
+                const category = item.dataset.category;
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 20);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 200);
+                }
+            });
+        });
+    });
+}
+
+/* ==========================================================================
+   5. ACORDEON ÎNTREBĂRI FRECVENTE (FAQ)
+   ========================================================================== */
+function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Închide celelalte elemente pentru o navigare curată
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+/* ==========================================================================
+   6. COOKIE CONSENT BANNER
+   ========================================================================== */
+function initCookieConsent() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    if (!localStorage.getItem('cortexCookieConsent')) {
+        setTimeout(() => {
+            banner.style.display = 'block';
+        }, 1200);
+    }
+}
+
+function acceptCookies() {
+    localStorage.setItem('cortexCookieConsent', 'accepted');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+}
+
+function rejectCookies() {
+    localStorage.setItem('cortexCookieConsent', 'rejected');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+}
+
+// Expunere globală pentru atributele onclick din HTML
+window.acceptCookies = acceptCookies;
+window.rejectCookies = rejectCookies;
+
+/* ==========================================================================
+   7. NOTIFICĂRI TOAST LA TRIMITERE FORMULAR
+   ========================================================================== */
+function initToastNotifications() {
+    if (window.location.search.includes('status=success')) {
+        const toast = document.getElementById('success-toast');
+        if (toast) {
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 6000);
+        }
+    }
+}
+
 function closeToast() {
     const toast = document.getElementById('success-toast');
     if (toast) toast.style.display = 'none';
 }
-
-if (window.location.search.includes('status=success')) {
-    const toast = document.getElementById('success-toast');
-    if (toast) {
-        toast.style.display = 'block';
-        setTimeout(() => toast.style.display = 'none', 5000);
-    }
-}
-
-// Cookie Consent
-function acceptCookies() {
-    localStorage.setItem('cookieConsent', 'accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
-}
-
-function rejectCookies() {
-    localStorage.setItem('cookieConsent', 'rejected');
-    document.getElementById('cookie-banner').style.display = 'none';
-}
-
-// Show cookie banner if not answered
-if (!localStorage.getItem('cookieConsent')) {
-    setTimeout(() => {
-        const banner = document.getElementById('cookie-banner');
-        if (banner) banner.style.display = 'block';
-    }, 1000);
-}
+window.closeToast = closeToast;
