@@ -6,7 +6,7 @@
 - **Companie:** CORTEX PRODCOM SRL
 - **Experiență:** Activitate neîntreruptă din anul 1994 (peste 30 de ani în domeniu)
 - **Locație Atelier:** DN2 / Drumul European E85, KM 415, Fălticeni, jud. Suceava, România (ieșirea spre Suceava)
-- **Coordonate GPS:** 47.4600, 26.3000
+- **Coordonate GPS:** 47.482333, 26.291993 (DN2 / E85 KM 415, Fălticeni)
 - **Telefon Urgențe & Comenzi:** +40 744 580 056 / 0744 580 056
 - **WhatsApp Consultanță & Estimare Rapidă:** +40 744 533 980
 - **Website Oficial:** https://5imi.github.io/cortex-prelate/
