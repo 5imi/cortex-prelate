@@ -437,6 +437,7 @@ button, input, select, textarea {
 .hero-title .text-gradient {
     background: linear-gradient(135deg, #ffffff 0%, #ffc107 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1777,3 +1778,18 @@ button, input, select, textarea {
     padding: 0.45rem 0.85rem;
     font-size: 0.8rem;
 }
+
+/* ==========================================================================
+   15. PERFORMANCE OPTIMIZATIONS (Core Web Vitals & Content Visibility)
+   ========================================================================== */
+.services-section,
+.before-after-section,
+.e85-highway-section,
+.gallery-section,
+.about-section,
+.faq-section,
+.contact-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
+}
+
