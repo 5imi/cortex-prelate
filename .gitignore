@@ -4,3 +4,37 @@ __pycache__/
 *.pyc
 
 .idea/
+
+
+# ==========================================
+# AI Assistant & IDE Exclusion Directives (AGENTS.md)
+# ==========================================
+.agents/
+.artifacts/
+.gemini/
+.idea/
+.vscode/
+*.iml
+local.properties
+build/
+.gradle/
+.cxx/
+
+
+
+# Secrets & Local Environments
+.env
+.env.*
+*.fdb
+*.gdb
+*.db
+*.sqlite
+.agents/
+.artifacts/
+.gemini/
+.idea/
+.vscode/
+build/
+dist/
+bin/
+obj/
