@@ -65,10 +65,20 @@
     padding: 0;
 }
 
+/* [OLD]
 html {
     scroll-behavior: smooth;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
+}
+Reason: Added overflow-x: hidden and max-width: 100% to strictly avoid horizontal bounce on mobile viewports.
+*/
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -128,6 +138,7 @@ button, input, select, textarea {
     box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
 
+/* [OLD]
 .pulse-dot {
     display: inline-block;
     width: 9px;
@@ -135,6 +146,18 @@ button, input, select, textarea {
     background-color: #ffffff;
     border-radius: 50%;
     animation: pulse 1.5s infinite;
+}
+Reason: Align inline with alert text on mobile to prevent isolated line wrap.
+*/
+.pulse-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    vertical-align: middle;
+    margin-right: 4px;
 }
 
 @keyframes pulse {
@@ -373,6 +396,7 @@ button, input, select, textarea {
     color: var(--color-primary);
 }
 
+/* [OLD]
 @media (max-width: 1180px) {
     .mobile-nav-toggle {
         display: block;
@@ -402,6 +426,109 @@ button, input, select, textarea {
     
     .header-actions .btn-header-phone {
         display: none;
+    }
+}
+Reason: Header actions with full WhatsApp button caused horizontal overflow on screens under 768px, pushing the hamburger menu off-screen.
+*/
+@media (max-width: 1180px) {
+    .mobile-nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: var(--shadow-lg);
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-item-mobile-only {
+        display: block;
+    }
+    
+    .header-actions .btn-header-phone {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide top WhatsApp button on mobile because the bottom persistent mobile-sticky-bar already provides a prominent WhatsApp button */
+    .header-actions .btn-whatsapp {
+        display: none;
+    }
+
+    .main-header .container {
+        padding: 0 1rem;
+    }
+
+    .header-inner {
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+    }
+
+    .logo-area {
+        gap: 0.5rem;
+        min-width: 0;
+    }
+
+    .logo-img {
+        height: 38px;
+    }
+
+    .logo-title {
+        font-size: 1.1rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.2px;
+    }
+
+    .mobile-nav-toggle {
+        padding: 0.4rem;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .container {
+        padding: 0 0.75rem;
+    }
+
+    .logo-img {
+        height: 34px;
+    }
+
+    .logo-title {
+        font-size: 0.98rem;
+        letter-spacing: -0.2px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.58rem;
+        letter-spacing: 0;
+    }
+
+    .mobile-nav-toggle {
+        padding: 0.3rem;
+    }
+
+    .mobile-nav-toggle svg {
+        width: 26px;
+        height: 26px;
     }
 }
 

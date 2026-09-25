@@ -269,3 +269,36 @@ When creating, cloning, or organizing files and repositories across the workstat
 * **Project Boundary Isolation**: Never write or move source code or scratch files outside the designated project boundaries. Cross-project dependencies must be explicitly configured via environment variables or shared system libraries, never by dumping loose files into parent directories.
 * **Catalog Registration**: Any newly created project, tool, or cloned repository must be documented in `D:\Proiecte\CATALOG_PROIECTE.md` with its purpose, tech stack, and GitHub remote URL to maintain complete traceability.
 * **Clean Working Tree**: Before finishing any coding turn, clean up all temporary test files (`*.tmp`, scratch scripts, test database clones, memory dumps). Working directories must remain pristine and organized.
+
+---
+
+## 🤖 Regula Obligatorie: Selectarea Modelului AI în Funcție de Complexitate (Stop & Recomandă)
+
+Înainte de a începe **ORICE** implementare de cod, refactorizare majoră sau modificare tehnică, **ESTE STRICT INTERZIS să începi scrierea codului până când nu prezinți utilizatorului evaluarea complexității și nu îi spui exact ce model AI să folosească**.
+
+### 📋 Lista Modelelor AI Disponibile:
+1. **Gemini 3.8 Flash** (Low, Medium sau High)
+2. **Gemini 3.7 Flash** (Low, Medium sau High)
+3. **Gemini 3.6 Flash** (Low, Medium sau High)
+4. **Gemini 3.1 Pro** (Low sau High)
+5. **Claude Sonnet 4.6 (Thinking)**
+6. **Claude Opus 4.6 (Thinking)**
+7. **GPT-OSS 120B (Medium)**
+
+### 🚦 Matrice de Decizie în Funcție de Complexitate:
+- 🟢 **Complexitate Scăzută (Low)**:
+  - Modificări simple de configurare, mesaje, corecturi de text/șabloane, regex-uri minore, ajustări punctuale de 1-5 linii de cod.
+  - *Modele Recomandate*: Gemini 3.8 Flash (Low sau Medium), Gemini 3.6 Flash (Low sau Medium), GPT-OSS 120B (Medium)
+- 🟡 **Complexitate Medie (Medium)**:
+  - Scripturi utilitare noi, integrări de API-uri REST simple (ex: webhook Telegram, endpoint nou în FastAPI), teste unitare noi, optimizări de parsare/filtrare.
+  - *Modele Recomandate*: Gemini 3.8 Flash (High), Gemini 3.7 Flash (High), Gemini 3.1 Pro (Low)
+- 🔴 **Complexitate Ridicată / Arhitecturală (High / Critical)**:
+  - Refactorizări de scheduler sau mașini de stări, concurență/multithreading/multi-proces, persistență tranzacțională (SQLite WAL / sincronizări CSV), algoritmi anti-spam, protecția reputației SMTP, modificări sistemice de arhitectură.
+  - *Modele Recomandate*: Claude Sonnet 4.6 (Thinking), Claude Opus 4.6 (Thinking), Gemini 3.1 Pro (High)
+
+### 🛑 Protocol Obligatoriu de Execuție (Stop & Confirm):
+Înainte de a rula orice unealtă de editare a codului sau scriere de fișiere de implementare:
+1. **Analizează cerința** și clasifică nivelul de complexitate (Scăzută / Medie / Ridicată).
+2. **Prezintă explicit utilizatorului**:
+   > „Această sarcină are o complexitate **[Scăzută / Medie / Ridicată]**. Pentru o execuție optimă și sigură, vă recomand să comutați pe modelul: **[Numele Modelului din listă]**. Confirmați comutarea pentru a începe implementarea?”
+3. **NU începe implementarea** până când utilizatorul nu confirmă sau ajustează selecția modelului.
