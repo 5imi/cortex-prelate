@@ -1,17 +1,23 @@
-# CORTEX PRODCOM — Prelate Auto & Terase 🚛🏕️
+# CORTEX PRODCOM - Prelate Auto si Terase
 
-Site-ul web oficial de prezentare și comenzi pentru **CORTEX PRODCOM**, companie specializată în producția de prelate auto, prelate pentru terase, copertine și structuri metalice personalizate.
+Site web oficial de prezentare a serviciilor si produselor de confectii din materiale tehnice, prelate auto, copertine si structuri dedicate.
 
----
+## Prezentare Generala
 
-## ✨ Funcționalități
-- 📱 **Design Ultra-Responsive**: Optimizat pentru dispozitive mobile, tablete și desktop.
-- 💬 **Integrare Conversii Directe**: Butoane directe de apelare rapidă și WhatsApp pentru preluare instantanee de comenzi și cotații.
-- 📍 **Localizare & Contact**: Hartă interactivă și formular de contact.
-- ⚡ **Performanță & SEO**: Marcaj structurat Schema.org, metatag-uri OpenGraph, pagini conforme GDPR (Privacy Policy, Cookies Policy).
+Platforma web a fost dezvoltata pentru a asigura o prezenta digitala moderna, oferind vizitatorilor informatii structurate privind portofoliul de produse, specificatiile tehnice ale materialelor utilizate si canalele de contact comercial.
 
----
+## Caracteristici Tehnice
 
-## 📄 Proprietate Intelectuală & Drepturi de Autor
-Drepturi rezervate: **Ciprian Simion**  
-Contact: 0742900221 | cipriansimi@gmail.com
+- Interfata optimizata pentru toate tipurile de dispozitive (mobil, tableta, desktop).
+- Integrare formular de contact si optiuni de comunicare directa pentru solicitari de oferte.
+- Optimizare pentru motoarele de cautare (SEO) si timpi redusi de incarcare.
+- Conformitate cu cerintele de protectie a datelor si politici standard de confidentialitate.
+
+## Tehnologii Utilizate
+
+- HTML5, CSS3, JavaScript modern.
+- Arhitectura usoara, fara dependente externe complexe.
+
+## Licenta
+
+Toate drepturile sunt rezervate. Continutul si designul apartin CORTEX PRODCOM.
