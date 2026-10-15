@@ -38,3 +38,15 @@ build/
 dist/
 bin/
 obj/
+
+
+# ====================================================================
+# AI Assistants, Internal Skills & IDE Tracking
+# ====================================================================
+.agents/
+.artifacts/
+.gemini/
+skills/
+AGENTS.md
+GEMINI.md
+
