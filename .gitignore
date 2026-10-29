@@ -1,5 +1,6 @@
 .aider*
-.agents/
+.agents/*
+!.agents/*.md
 __pycache__/
 *.pyc
 
@@ -9,7 +10,8 @@ __pycache__/
 # ==========================================
 # AI Assistant & IDE Exclusion Directives (AGENTS.md)
 # ==========================================
-.agents/
+.agents/*
+!.agents/*.md
 .artifacts/
 .gemini/
 .idea/
@@ -29,7 +31,8 @@ build/
 *.gdb
 *.db
 *.sqlite
-.agents/
+.agents/*
+!.agents/*.md
 .artifacts/
 .gemini/
 .idea/
@@ -43,10 +46,10 @@ obj/
 # ====================================================================
 # AI Assistants, Internal Skills & IDE Tracking
 # ====================================================================
-.agents/
+.agents/*
+!.agents/*.md
 .artifacts/
 .gemini/
 skills/
-AGENTS.md
 GEMINI.md
 
