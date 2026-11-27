@@ -664,20 +664,16 @@
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
 
-    try {
-      localStorage.setItem(STORAGE_KEY, target);
-    } catch (_) {}
-
     window.dispatchEvent(new CustomEvent('cortex:langchange', { detail: { lang: target } }));
   }
 
+  /* Detectie limba initiala: Porneste implicit in Romana (ro); comuta pe Engleza doar la click pe EN sau prin parametrul explicit ?lang=en. */
   function detectInitialLang() {
     const params = new URLSearchParams(window.location.search);
     const urlLang = (params.get('lang') || '').toLowerCase();
-    if (urlLang === 'en' || urlLang === 'ro') return urlLang;
+    if (urlLang === 'en') return 'en';
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'en' || saved === 'ro') return saved;
+      localStorage.removeItem(STORAGE_KEY);
     } catch (_) {}
     return 'ro';
   }
