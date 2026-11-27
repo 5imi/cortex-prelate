@@ -27,35 +27,49 @@ Pe GitHub trebuie să ajungă **DOAR codul sursă al programului**, resursele ap
 
 ---
 
-## 🤖 Regula Obligatorie: Selectarea Modelului AI în Funcție de Complexitate (Stop & Recomandă)
+## 🤖 Regula Obligatorie: Selectarea Modelului AI în Funcție de Rol, Putere de Procesare și Cotă (Stop & Recomandă)
 
-Înainte de a începe **ORICE** implementare de cod, refactorizare majoră sau modificare tehnică, **ESTE STRICT INTERZIS să începi scrierea codului până când nu prezinți utilizatorului evaluarea complexității și nu îi spui exact ce model AI să folosească**.
+Înainte de a începe **ORICE** implementare de cod, refactorizare majoră sau modificare tehnică, **ESTE STRICT INTERZIS să începi scrierea codului până când nu prezinți utilizatorului evaluarea complexității, domeniul tehnic și recomandarea exactă a modelului + treapta de putere**.
 
-### 📋 Lista Modelelor AI Disponibile:
-1. **Gemini 3.8 Flash** (Low, Medium sau High)
-2. **Gemini 3.7 Flash** (Low, Medium sau High)
-3. **Gemini 3.6 Flash** (Low, Medium sau High)
-4. **Gemini 3.1 Pro** (Low sau High)
-5. **Claude Sonnet 4.6 (Thinking)**
-6. **Claude Opus 4.6 (Thinking)**
-7. **GPT-OSS 120B (Medium)**
+### 📋 Catalogul Modelelor AI, Rolul Lor și Puterea de Procesare:
 
-### 🚦 Matrice de Decizie în Funcție de Complexitate:
-- 🟢 **Complexitate Scăzută (Low)**:
-  - Modificări simple de configurare, mesaje, corecturi de text/șabloane, regex-uri minore, ajustări punctuale de 1-5 linii de cod.
-  - *Modele Recomandate*: Gemini 3.8 Flash (Low sau Medium), Gemini 3.6 Flash (Low sau Medium), GPT-OSS 120B (Medium)
-- 🟡 **Complexitate Medie (Medium)**:
-  - Scripturi utilitare noi, integrări de API-uri REST simple, adăugare endpoint nou, teste unitare noi, optimizări de parsare/filtrare.
-  - *Modele Recomandate*: Gemini 3.8 Flash (High), Gemini 3.7 Flash (High), Gemini 3.1 Pro (Low)
-- 🔴 **Complexitate Ridicată / Arhitecturală (High / Critical)**:
-  - Refactorizări majore de arhitectură, concurență/multithreading/multi-proces, persistență tranzacțională critică, modificări de mașini de stări sau algoritmi de bază.
-  - *Modele Recomandate*: Claude Sonnet 4.6 (Thinking), Claude Opus 4.6 (Thinking), Gemini 3.1 Pro (High)
+| Model AI | Trepte de Putere | Rol & Specializare Principală | Regim de Cotă |
+| :--- | :--- | :--- | :--- |
+| **1. Gemini 4 Hydrogen** | `Low`, `Medium`, `High`, `XHigh` | **Sprinter & Execuție Rapidă**: latență minimă; ideal pentru editări punctuale, configurări, regex, scripturi scurte, fix-uri rapide și comenzi CLI. | 🟢 Cotă Zilnică (Reset la câteva ore) |
+| **2. Gemini 4 Neon** | `Low`, `Medium`, `High`, `XHigh` | **Workhorse Full-Stack (Producție Zilnică)**: echilibrul ideal viteză/inteligență; excelent pentru Python/FastAPI, Kotlin, endpoint-uri REST, sincronizări, debugging și teste unitare. | 🟢 Cotă Zilnică (Reset la câteva ore) |
+| **3. Gemini 4 Argon** | `Low`, `Medium`, `High` | **Arhitect Suprem & Deep Reasoning (Flagship Pro)**: sinteză arhitecturală grea, concurență/multithreading, tranzacții DB critice (SQLite WAL / Room / Firebird), securitate și bug-uri ascunse. | 🔴 Cotă Săptămânală (A se folosi strategic!) |
+| **4. Orchestrator (Neon)** | *Auto-Orchestrare* | **Coordonator Rapid Multi-Modul**: sparge task-uri mari în pași logici și modifică sincronizat mai multe straturi (DB + Backend + Frontend) pe cota zilnică. | 🟢 Cotă Zilnică (Reset la câteva ore) |
+| **5. Orchestrator (Argon)** | *Auto-Orchestrare Pro* | **Arhitect Șef & Coordonator Sisteme Critice**: orchestrare de nivel maxim pentru reorganizări masive de arhitectură și audituri sistemice cap-coadă. | 🔴 Cotă Săptămânală (A se folosi strategic!) |
+| **6. Claude Sonnet 5.5** | `Low`, `Medium`, `High` | **Specialist UI/UX, Frontend & Cod Chirurgical**: urmează strict regulile de design (Tabler Light, HTML/CSS/JS, Jetpack Compose), refactorizări curate fără regresii și componente interactive. | 🟢 Cotă Zilnică Separată (Bazin Anthropic) |
+| **7. Claude Opus 5.5** | `Low`, `Medium`, `High` | **Maestru Arhitectură Fină, UI/UX Complex & Copywriting**: calitate enterprise maximă, redesign-uri vizuale complete, explicații/tooltips în limba română, logică de business complexă și edge-cases. | 🟢 Cotă Zilnică Separată (Bazin Anthropic) |
+| **8. Gemini 3.8 Flash** | `Low`, `Medium`, `High` | **Model Economic de Rezervă**: sarcini mecanice de rutină, verificări sintactice, curățenie fișiere și actualizări simple de documentație. | 🟢 Cotă Zilnică (Reset la câteva ore) |
+
+### ⚙️ Ghidul Treptelor de Putere (Reasoning / Thinking Budget):
+- **`Low` (Gândire Minimă)**: Execuție instantanee pentru modificări clare de 1–10 linii unde soluția este deja cunoscută.
+- **`Medium` (Echilibrat)**: Analizează contextul fișierelor directe și implementează rapid (optim pentru ~70% din task-urile curente).
+- **`High` (Gândire Profundă)**: Planificare internă completă, verificare dependențe încrucișate și prevenire regresii (obligatoriu pentru UI/UX complex, arhitectură și migrări).
+- **`XHigh` (Gândire Extremă — pe Neon/Hydrogen)**: Verificare exhaustivă a tuturor ramurilor logice, oferind putere apropiată de clasa Argon fără a consuma cota săptămânală.
+
+### 🚦 Matrice de Recomandare în Funcție de Complexitate și Domeniu:
+- 🟢 **Complexitate Scăzută (Low — Configurări, Texte, Fix-uri Mici 1-10 linii)**:
+  - *Recomandare Principală*: **Gemini 4 Hydrogen (Low sau Medium)** — execuție instantanee.
+  - *Alternativă*: **Gemini 3.8 Flash (Low sau Medium)** sau **Claude Sonnet 5.5 (Low)**.
+- 🟡 **Complexitate Medie (Medium — Endpoint-uri API, Formulare, Ecrane UI, Teste Unitare, Scripturi)**:
+  - *Pentru Backend / Logică / Teste*: **Gemini 4 Neon (Medium sau High)** sau **Gemini 4 Hydrogen (High)**.
+  - *Pentru UI/UX / CSS / Compose*: **Claude Sonnet 5.5 (Medium sau High)**.
+- 🔴 **Complexitate Ridicată / Arhitecturală (High / Critical — Redesign UI/UX Major, Concurență, Baze de Date, Securitate)**:
+  - *Pentru Redesign UI/UX, Ergonomie, Frontend Complex & Explicații Utilizator*: **Claude Opus 5.5 (High)** sau **Claude Sonnet 5.5 (High)** *(protejează cota săptămânală Argon și oferă precizie vizuală maximă)*.
+  - *Pentru Logică Full-Stack Grea pe Cotă Zilnică*: **Gemini 4 Neon (High sau XHigh)** sau **Orchestrator (Neon)**.
+  - *Pentru Arhitectură Critică de Sistem, Concurență & Persistență Tranzacțională*: **Gemini 4 Argon (High)**, **Claude Opus 5.5 (High)** sau **Orchestrator (Argon)**.
 
 ### 🛑 Protocol Obligatoriu de Execuție (Stop & Confirm):
 Înainte de a rula orice unealtă de editare a codului sau scriere de fișiere de implementare:
-1. **Analizează cerința** și clasifică nivelul de complexitate (Scăzută / Medie / Ridicată).
+1. **Analizează cerința**, clasifică **Complexitatea (Scăzută / Medie / Ridicată)** și **Domeniul (UI/UX, Backend, DB, Arhitectură)**.
 2. **Prezintă explicit utilizatorului**:
-   > „Această sarcină are o complexitate **[Scăzută / Medie / Ridicată]**. Pentru o execuție optimă și sigură, vă recomand să comutați pe modelul: **[Numele Modelului din listă]**. Confirmați comutarea pentru a începe implementarea?”
+   > „Această sarcină este de tip **[Domeniu]** și are o complexitate **[Scăzută / Medie / Ridicată]**.
+   > • **Model Recomandat:** **[Nume Model + Treaptă Putere]** — *[Motivul tehnic: de ce este cel mai bun pe acest rol și cum optimizează cota]*.
+   > • **Alternativă Recomandată:** **[Model Alternativ + Treaptă Putere]**.
+   > Confirmați modelul pentru a începe implementarea?”
 3. **NU începe implementarea** până când utilizatorul nu confirmă sau ajustează selecția modelului.
 
 ---
