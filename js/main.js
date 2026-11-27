@@ -108,70 +108,92 @@ function initCalculator() {
     });
 
     function updateCalculation() {
+        const isEn = typeof window.cortexGetLang === 'function' && window.cortexGetLang() === 'en';
+        const activeBtn = document.querySelector('.calc-type-btn.active .type-label');
+        if (activeBtn) {
+            typeName = activeBtn.textContent.trim();
+        }
         const len = parseFloat(inputLen.value) || 0;
         const h = parseFloat(inputHeight.value) || 0;
         let area = 0;
-        let execTime = '24 – 48 ore';
+        let execTime = isEn ? '24 – 48 hours' : '24 – 48 ore';
 
         if (selectedType === 'camion') {
             // Cutie TIR: 2 laterale + tavan
             area = Math.round((len * h * 2) + (len * 2.5));
-            execTime = '24 – 48 ore';
+            execTime = isEn ? '24 – 48 hours' : '24 – 48 ore';
         } else if (selectedType === 'remorca') {
             // Remorcă mică
             area = Math.round((len * h * 2) + (len * 1.5));
-            execTime = '24 ore';
+            execTime = isEn ? '24 hours' : '24 ore';
         } else if (selectedType === 'terasa') {
             // Folie transparentă cristal 0.8mm
             area = Math.round(len * h);
-            execTime = '2 – 3 zile';
+            execTime = isEn ? '2 – 3 days' : '2 – 3 zile';
         } else if (selectedType === 'agricol') {
             // Prelată mare baloți / siloz
             area = Math.round(len * h);
-            execTime = '24 – 48 ore';
+            execTime = isEn ? '24 – 48 hours' : '24 – 48 ore';
         } else if (selectedType === 'nautic') {
             // Barcă sau piscină
             area = Math.round(len * h * 1.3);
-            execTime = '2 – 4 zile';
+            execTime = isEn ? '2 – 4 days' : '2 – 4 zile';
         } else if (selectedType === 'reparatie') {
             // Reparație rapidă pe loc
             area = Math.round(len * h);
-            execTime = '30 – 60 minute (Pe loc)';
+            execTime = isEn ? '30 – 60 minutes (On-site)' : '30 – 60 minute (Pe loc)';
         }
 
         // Opțiuni bifate
         let optionsList = [];
         if (optPrint && optPrint.checked) {
-            optionsList.push('Inscripționare/Logo');
+            optionsList.push(isEn ? 'Logo & Text Branding' : 'Inscripționare/Logo');
         }
         if (optHardware && optHardware.checked) {
-            optionsList.push('Feronerie Zincată/Capse Dese');
+            optionsList.push(isEn ? 'Galvanized Hardware & Stainless Eyelets' : 'Feronerie Zincată/Capse Dese');
         }
         if (optCable && optCable.checked) {
-            optionsList.push('Cablu Vamal / Ancore de Fixare');
+            optionsList.push(isEn ? 'TIR Customs Cable / Anchors' : 'Cablu Vamal / Ancore de Fixare');
         }
         if (optInstall && optInstall.checked) {
-            optionsList.push('Montaj Inclus la Atelier');
+            optionsList.push(isEn ? 'On-Site Mounting at Workshop' : 'Montaj Inclus la Atelier');
         }
 
         // Actualizare UI (Fără prețuri numerice)
         if (resType) resType.textContent = typeName;
-        if (resArea) resArea.textContent = `${area} mp`;
+        if (resArea) resArea.textContent = isEn ? `${area} sqm` : `${area} mp`;
         if (resTime) resTime.textContent = execTime;
-        if (resPrice) resPrice.textContent = 'Calculat pe loc (Fără costuri ascunse)';
+        if (resPrice) {
+            resPrice.textContent = isEn
+                ? 'Calculated on-site (No hidden fees)'
+                : 'Calculat pe loc (Fără costuri ascunse)';
+        }
 
-        // Generare mesaj WhatsApp profesional și complet
+        // Generare mesaj WhatsApp profesional și complet (RO / EN)
         if (btnWhatsApp) {
-            let msg = `Bună ziua! Am configurat pe site o cerere pentru: *${typeName}*.\n`;
-            msg += `📏 Dimensiuni: ${len}m lungime x ${h}m înălțime/lățime (~${area} mp).\n`;
-            if (optionsList.length > 0) {
-                msg += `⚙️ Opțiuni bifate: ${optionsList.join(', ')}.\n`;
+            let msg;
+            if (isEn) {
+                msg = `Hello! I configured a quote request on your website for: *${typeName}*.\n`;
+                msg += `📏 Dimensions: ${len}m length x ${h}m height/width (~${area} sqm).\n`;
+                if (optionsList.length > 0) {
+                    msg += `⚙️ Selected options: ${optionsList.join(', ')}.\n`;
+                }
+                msg += `Please send me an exact price quote and turnaround time. I will also send a photo on WhatsApp.`;
+            } else {
+                msg = `Bună ziua! Am configurat pe site o cerere pentru: *${typeName}*.\n`;
+                msg += `📏 Dimensiuni: ${len}m lungime x ${h}m înălțime/lățime (~${area} mp).\n`;
+                if (optionsList.length > 0) {
+                    msg += `⚙️ Opțiuni bifate: ${optionsList.join(', ')}.\n`;
+                }
+                msg += `Vă rog să-mi transmiteți o ofertă exactă de preț și când o puteți executa. Vă trimit și o poză pe WhatsApp.`;
             }
-            msg += `Vă rog să-mi transmiteți o ofertă exactă de preț și când o puteți executa. Vă trimit și o poză pe WhatsApp.`;
 
             btnWhatsApp.href = `https://wa.me/40744533980?text=${encodeURIComponent(msg)}`;
         }
     }
+
+    // Re-calculare la schimbarea limbii RO / EN
+    window.addEventListener('cortex:langchange', updateCalculation);
 
     // Calcul inițial la încărcare
     updateCalculation();

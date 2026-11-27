@@ -42,10 +42,10 @@
     <meta name="twitter:image" content="https://5imi.github.io/cortex-prelate/images/card_truck_new.webp">
 
     <!-- Preload resurse critice -->
-    <link rel="preload" href="css/style.css?v=2.5" as="style">
+    <link rel="preload" href="css/style.css?v=2.6" as="style">
 
     <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css?v=2.5">
+    <link rel="stylesheet" href="css/style.css?v=2.6">
 
     <!-- Google Fonts Async optimizat cu subset latin/latin-ext -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -198,6 +198,11 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813 3.183 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm3.364 8.163c-.14.394-.712.729-1.002.766-.279.035-.634.055-1.026-.071-.247-.079-.569-.193-1.001-.38-1.836-.795-3.033-2.656-3.125-2.778-.091-.122-.746-.992-.746-1.892 0-.9.472-1.343.64-1.527.168-.183.367-.229.49-.229.123 0 .245.001.353.007.114.005.267-.043.418.32.155.372.531 1.297.577 1.391.046.094.077.203.015.326-.062.123-.092.2-.183.308-.092.107-.193.24-.276.322-.092.092-.188.192-.081.376.107.184.476.786 1.021 1.272.702.627 1.295.82 1.479.912.184.092.292.077.4-.046.108-.123.461-.537.584-.721.123-.184.246-.153.414-.092.169.061 1.074.506 1.258.598.184.092.307.138.353.215.046.077.046.445-.094.839z"/></svg>
                     WhatsApp
                 </a>
+                <!-- Comutator limba RO | EN: Schimba instant continutul intre Romana si Engleza cu salvare in localStorage. -->
+                <div class="lang-switcher" role="group" aria-label="Selectare limbă / Language switcher">
+                    <button type="button" class="lang-btn active" data-lang="ro" aria-pressed="true">RO</button>
+                    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                </div>
                 <button class="mobile-nav-toggle" aria-label="Meniu de navigare" aria-expanded="false">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
@@ -1241,8 +1246,9 @@
         </div>
     </div>
 
-    <!-- Script Principal -->
-    <script src="js/main.js?v=2.1" defer></script>
+    <!-- Script Bilingv RO | EN & Script Principal -->
+    <script src="js/i18n.js?v=1.0" defer></script>
+    <script src="js/main.js?v=2.2" defer></script>
 
     <!-- Auto Purge Cache & Unregister Service Worker -->
     <script>
